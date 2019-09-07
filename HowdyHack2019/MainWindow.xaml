@@ -7,6 +7,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
+        <StackPanel>
+            <StackPanel Background="Silver">
+                <Label Content="HackR: A team finding solution" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Center">
+                <Label Content="Select your view"/>
+                <StackPanel Orientation="Horizontal" >
+                    <Button x:Name="btnParticipant" Content="Participant" Margin="0,0,100,0"/>
+                    <Button x:Name="btnOrganizer" Content="Organizer" Margin="100,0,0,0"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
         
+
     </Grid>
 </Window>
