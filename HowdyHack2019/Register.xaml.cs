@@ -36,6 +36,11 @@ namespace HowdyHack2019
 
         private void BtnSubmit_Click(object sender, RoutedEventArgs e)
         {
+            if(!TbxPassword.Text.Equals(TbxPasswordConfirm.Text))
+            {
+                MessageBox.Show("Passwords do not match!");
+                return;
+            }
             connection.Open();
             Random random = new Random();
             int r = random.Next();

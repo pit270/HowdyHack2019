@@ -43,7 +43,7 @@ namespace HowdyHack2019
                 surveyBtn.IsEnabled = false;
                 calculateBtn.IsEnabled = true;
             }
-            calculateBtn.IsEnabled = true;
+            //calculateBtn.IsEnabled = true;
         }
 
         public Participant(Window parent, string usr)
@@ -65,7 +65,7 @@ namespace HowdyHack2019
                 surveyBtn.IsEnabled = false;
                 calculateBtn.IsEnabled = true;
             }
-            calculateBtn.IsEnabled = true;
+            //calculateBtn.IsEnabled = true;
         }
 
         private bool hasTakenSurvey()
@@ -125,7 +125,7 @@ namespace HowdyHack2019
                 surveyBtn.IsEnabled = false;
                 calculateBtn.IsEnabled = true;
             }
-            calculateBtn.IsEnabled = true;
+            //calculateBtn.IsEnabled = true;
         }
 
         private void CalculateBtn_Click(object sender, RoutedEventArgs e)
@@ -198,6 +198,23 @@ namespace HowdyHack2019
                     
                     data.Children.Add(uniformGrid);
                 });
+            }
+
+            
+        }
+        public void updateBtns()
+        {
+            surveyTaken = hasTakenSurvey();
+            Console.WriteLine(surveyTaken);
+            if (!surveyTaken)
+            {
+                surveyBtn.IsEnabled = true;
+                calculateBtn.IsEnabled = false;
+            }
+            else
+            {
+                surveyBtn.IsEnabled = false;
+                calculateBtn.IsEnabled = true;
             }
         }
     }

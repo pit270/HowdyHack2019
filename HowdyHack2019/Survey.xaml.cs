@@ -115,6 +115,7 @@ namespace HowdyHack2019
             if (a == 1)
             {
                 parent.Show();
+                ((Participant)parent).updateBtns();
                 this.Close();
             }
         }
