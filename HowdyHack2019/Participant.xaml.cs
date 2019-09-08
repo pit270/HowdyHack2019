@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Data.OleDb;
 using System.Configuration;
+using System.Windows.Controls.Primitives;
 
 namespace HowdyHack2019
 {
@@ -32,7 +33,17 @@ namespace HowdyHack2019
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["HowdyHack2019.Properties.Settings.hackrDBConnectionString"].ToString();
             surveyTaken = hasTakenSurvey();
             Console.WriteLine(surveyTaken);
-            if (!surveyTaken) surveyBtn.IsEnabled = true;
+            if (!surveyTaken)
+            {
+                surveyBtn.IsEnabled = true;
+                calculateBtn.IsEnabled = false;
+            }
+            else
+            {
+                surveyBtn.IsEnabled = false;
+                calculateBtn.IsEnabled = true;
+            }
+            calculateBtn.IsEnabled = true;
         }
 
         public Participant(Window parent, string usr)
@@ -44,7 +55,17 @@ namespace HowdyHack2019
             connection.ConnectionString = ConfigurationManager.ConnectionStrings["HowdyHack2019.Properties.Settings.hackrDBConnectionString"].ToString();
             surveyTaken = hasTakenSurvey();
             Console.WriteLine(surveyTaken);
-            if (!surveyTaken) surveyBtn.IsEnabled = true;
+            if (!surveyTaken)
+            {
+                surveyBtn.IsEnabled = true;
+                calculateBtn.IsEnabled = false;
+            }
+            else
+            {
+                surveyBtn.IsEnabled = false;
+                calculateBtn.IsEnabled = true;
+            }
+            calculateBtn.IsEnabled = true;
         }
 
         private bool hasTakenSurvey()
@@ -75,7 +96,109 @@ namespace HowdyHack2019
             Window window = new Survey(this, usr);
             window.Show();
             this.Hide();
+            _shown = false;
         }
-        
+
+        protected override void OnClosed(EventArgs e)
+        {
+            parent.Show();
+        }
+
+        bool _shown;
+        protected override void OnContentRendered(EventArgs e)
+        {
+            base.OnContentRendered(e);
+
+            if (_shown)
+                return;
+
+            _shown = true;
+
+            surveyTaken = hasTakenSurvey();
+            if (!surveyTaken)
+            {
+                surveyBtn.IsEnabled = true;
+                calculateBtn.IsEnabled = false;
+            }
+            else
+            {
+                surveyBtn.IsEnabled = false;
+                calculateBtn.IsEnabled = true;
+            }
+            calculateBtn.IsEnabled = true;
+        }
+
+        private void CalculateBtn_Click(object sender, RoutedEventArgs e)
+        {
+            connection.Open();
+            string query = "SELECT * FROM responses";
+            List<ParticipantData> participantDatas = new List<ParticipantData>();
+            OleDbCommand command = new OleDbCommand();
+            command.CommandText = query;
+            command.Connection = connection;
+            ParticipantData self = new ParticipantData();
+            OleDbDataReader reader = command.ExecuteReader();
+            while(reader.Read())
+            {
+                ParticipantData participantData = new ParticipantData();
+                participantData.username = reader.GetString(1);
+                
+                participantData.programmingExperience = reader.GetInt32(3);
+                participantData.wantsToTeach = (reader.GetString(4).Equals("True")) ? true : false;
+                participantData.wantsToLearn = (reader.GetString(5).Equals("True")) ? true : false;
+                participantData.preferredLang = reader.GetString(6);
+                string grade = reader.GetString(2);
+                if (grade.Equals("Freshman")) participantData.grade = 1;
+                else if (grade.Equals("Sophmore")) participantData.grade = 2;
+                else if (grade.Equals("Junior")) participantData.grade = 3;
+                else if (grade.Equals("Senior")) participantData.grade = 4;
+                if (participantData.username.Equals(usr))
+                {
+                    self = participantData;
+                    continue;
+                }
+                participantDatas.Add(participantData);
+                Console.WriteLine();
+            }
+
+            reader.Close();
+            connection.Close();
+
+            foreach(ParticipantData p in participantDatas)
+            {
+                p.score = p.match(self);
+            }
+
+         
+            participantDatas.Sort();
+            data.Children.Clear();
+            foreach (ParticipantData p in participantDatas)
+            {
+                UniformGrid uniformGrid = new UniformGrid();
+                uniformGrid.Rows = 1;
+                Label label1 = new Label(); label1.Content = p.username; label1.FontWeight = FontWeights.Bold;
+                Label label2 = new Label(); label2.Content = p.score;
+                Label label3 = new Label(); label3.Content = p.grade;
+                Label label4 = new Label(); label4.Content = p.programmingExperience;
+                Label label5 = new Label(); label5.Content = p.wantsToLearn;
+                Label label6 = new Label(); label6.Content = p.wantsToTeach;
+                Label label7 = new Label(); label7.Content = p.preferredLang;
+                uniformGrid.Dispatcher.Invoke(() =>
+                {
+                    uniformGrid.Children.Add(label1);
+                    uniformGrid.Children.Add(label2);
+                    uniformGrid.Children.Add(label3);
+                    uniformGrid.Children.Add(label4);
+                    uniformGrid.Children.Add(label5);
+                    uniformGrid.Children.Add(label6);
+                    uniformGrid.Children.Add(label7);
+                });
+                data.Dispatcher.Invoke(() =>
+                {
+                    
+                    data.Children.Add(uniformGrid);
+                });
+            }
+        }
     }
 }

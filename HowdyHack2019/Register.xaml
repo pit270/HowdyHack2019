@@ -18,13 +18,13 @@
                     <Label Content="TAMU Email" Grid.Row="2" Margin="5"/>
                     <TextBox x:Name="TbxEmail" Grid.Row="2" Margin="5"/>
                     <Label Content="Password" Grid.Row="3" Margin="5"/>
-                    <PasswordBox x:Name="TbxPassword" Grid.Row="3" Margin="5"/>
+                    <TextBox x:Name="TbxPassword" Grid.Row="3" Margin="5"/>
                     <Label Content="Confirm Password" Grid.Row="4" Margin="5"/>
-                    <PasswordBox x:Name="TbxPasswordConfirm" Grid.Row="4" Margin="5"/>
+                    <TextBox x:Name="TbxPasswordConfirm" Grid.Row="4" Margin="5"/>
                     <Label Content="Account Type:" Grid.Row="5" Margin="5"/>
                     <UniformGrid Columns="2" Rows="1" Grid.Row="5">
-                        <RadioButton Content="Participant" IsChecked="True"/>
-                        <RadioButton Content="Organizer"/>
+                        <RadioButton x:Name="rdbPart" Content="Participant" IsChecked="True"/>
+                        <RadioButton Content="Organizer" IsEnabled="False"/>
                     </UniformGrid>
                     <Button x:Name="btnBack" Content="Back" Grid.Row="6" Margin="5" Click="BtnBack_Click"/>
                     <Button x:Name="btnSubmit" Content="Submit" Grid.Row="6" Margin="5" Click="BtnSubmit_Click"/>

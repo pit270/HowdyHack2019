@@ -136,5 +136,10 @@ namespace HowdyHack2019
             if (storedUsr.Equals(usr)) return true;
             else return false;
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            parent.Show();
+        }
     }
 }

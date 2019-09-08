@@ -11,9 +11,22 @@
             <StackPanel Background="Silver">
                 <Label Content="Welcome!" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
             </StackPanel>
-            <StackPanel>
-                <Button x:Name="surveyBtn" Content="Take Survey!" Width="200" Height="110" FontSize="25" FontWeight="ExtraBold" IsEnabled="False" Foreground="Blue" Click="SurveyBtn_Click"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button x:Name="surveyBtn" Content="Take&#10;Survey!" Width="200" Height="80" FontSize="25" FontWeight="ExtraBold" IsEnabled="False" Foreground="Blue" Click="SurveyBtn_Click" Margin="5"/>
+                <Button x:Name="calculateBtn" Content="Calculate&#10;Matches" Width="200" Height="80" FontSize="25" FontWeight="ExtraBold" IsEnabled="False" Foreground="Firebrick" Click="CalculateBtn_Click" Margin="5"/>
             </StackPanel>
+            <UniformGrid Rows="1" >
+                <Label Content="Username"/>
+                <Label Content="Score*"/>
+                <Label Content="Grade"/>
+                <Label Content="Years Programming"/>
+                <Label Content="Wants to Learn"/>
+                <Label Content="Wants to Teach"/>
+                <Label Content="Preferred Language"/>
+            </UniformGrid>
+            <Separator/>
+            <StackPanel x:Name="data"/>
+            <Label Content="*lower score means more compatible"/>
         </StackPanel>
     </Grid>
 </Window>
