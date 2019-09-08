@@ -12,11 +12,19 @@
                 <Label Content="HackR: A team finding solution" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
-                <Label Content="Select your view"/>
-                <StackPanel Orientation="Horizontal" >
-                    <Button x:Name="btnParticipant" Content="Participant" Margin="0,0,100,0"/>
-                    <Button x:Name="btnOrganizer" Content="Organizer" Margin="100,0,0,0"/>
+                <Label Content="Login" HorizontalAlignment="Center" FontSize="20"/>
+                <UniformGrid Rows="2" Columns="2">
+                    <Label Grid.Row="1" Content="Username:" />
+                    <TextBox Grid.Row="1" x:Name="usernametxt" Width="150" />
+                    <Label Grid.Row="2" Content="Password:"/>
+                    <TextBox Grid.Row="2" x:Name="passwordtxt" Width="150" />
+                </UniformGrid>
+                <Button x:Name="btnSubmit" Content="Login" Margin="0,5,0,0" Click="BtnSubmit_Click"/>
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="Dont have an account?"/>
+                    <Label Content="Register" Foreground="Blue" PreviewMouseDown="Label_PreviewMouseDown"/>
                 </StackPanel>
+                
             </StackPanel>
         </StackPanel>
         

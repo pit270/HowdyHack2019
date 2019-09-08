@@ -13,3 +13,11 @@ C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\HowdyHack2019.
 C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\HowdyHack2019.csproj.CoreCompileInputs.cache
 C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\HowdyHack2019.exe
 C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\HowdyHack2019.pdb
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Participant.g.cs
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Participant.baml
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Register.g.cs
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Register.baml
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\bin\Debug\hackrDB.mdb
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\HowdyHack2019_Content.g.cs
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Survey.g.cs
+C:\Users\weeks\source\repos\HowdyHack2019\HowdyHack2019\obj\Debug\Survey.baml
