@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HowdyHack2019"
         mc:Ignorable="d"
-        Title="Survey" Height="500" Width="800">
+        Title="Survey" Height="500" Width="800" Background="#FCD2CF" Foreground="#800000">
     <Grid>
         <Label Content="Grade: " Margin="90,10,0,0"></Label>
         <StackPanel>

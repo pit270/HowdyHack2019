@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:HowdyHack2019"
         mc:Ignorable="d"
         Title="Register" Height="350" Width="400">
-    <Grid>
+    <Grid Background="#FCD2CF">
         <StackPanel>
-            <StackPanel Background="Silver">
-                <Label Content="Register" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
+            <StackPanel Background="#800000">
+                <Label Content="Register" Foreground="GhostWhite" FontWeight="Bold" FontSize="25"/>
             </StackPanel>
             <StackPanel>
                 <UniformGrid Columns="2" Rows="6" >

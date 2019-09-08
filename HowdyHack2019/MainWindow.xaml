@@ -6,10 +6,10 @@
         xmlns:local="clr-namespace:HowdyHack2019"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Background="#FCD2CF">
         <StackPanel>
-            <StackPanel Background="Silver">
-                <Label Content="HackR: A team finding solution" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
+            <StackPanel Background="#800000">
+                <Label Content="HackR: A team finding solution" Foreground="GhostWhite" FontWeight="Bold" FontSize="25"/>
             </StackPanel>
             <StackPanel HorizontalAlignment="Center">
                 <Label Content="Login" HorizontalAlignment="Center" FontSize="20"/>

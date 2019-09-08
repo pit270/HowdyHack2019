@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HowdyHack2019"
         mc:Ignorable="d"
-        Title="Participant" Height="450" Width="800">
+        Title="Participant" Height="450" Width="800" Background="#FCD2CF">
     <Grid>
         <StackPanel>
-            <StackPanel Background="Silver">
-                <Label Content="Welcome!" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
+            <StackPanel Background="#800000">
+                <Label Content="Welcome!" Foreground="GhostWhite" FontWeight="Bold" FontSize="25"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button x:Name="surveyBtn" Content="Take&#10;Survey!" Width="200" Height="80" FontSize="25" FontWeight="ExtraBold" IsEnabled="False" Foreground="Blue" Click="SurveyBtn_Click" Margin="5"/>
