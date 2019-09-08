@@ -1,0 +1,35 @@
+﻿<Window x:Class="HowdyHack2019.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HowdyHack2019"
+        mc:Ignorable="d"
+        Title="Register" Height="350" Width="400">
+    <Grid>
+        <StackPanel>
+            <StackPanel Background="Silver">
+                <Label Content="Register" Foreground="Maroon" FontWeight="Bold" FontSize="25"/>
+            </StackPanel>
+            <StackPanel>
+                <UniformGrid Columns="2" Rows="6" >
+                    <Label Content="Username" Grid.Row="1" Margin="5"/>
+                    <TextBox x:Name="TbxUsername" Grid.Row="1" Margin="5"/>
+                    <Label Content="TAMU Email" Grid.Row="2" Margin="5"/>
+                    <TextBox x:Name="TbxEmail" Grid.Row="2" Margin="5"/>
+                    <Label Content="Password" Grid.Row="3" Margin="5"/>
+                    <PasswordBox x:Name="TbxPassword" Grid.Row="3" Margin="5"/>
+                    <Label Content="Confirm Password" Grid.Row="4" Margin="5"/>
+                    <PasswordBox x:Name="TbxPasswordConfirm" Grid.Row="4" Margin="5"/>
+                    <Label Content="Account Type:" Grid.Row="5" Margin="5"/>
+                    <UniformGrid Columns="2" Rows="1" Grid.Row="5">
+                        <RadioButton Content="Participant" IsChecked="True"/>
+                        <RadioButton Content="Organizer"/>
+                    </UniformGrid>
+                    <Button x:Name="btnBack" Content="Back" Grid.Row="6" Margin="5" Click="BtnBack_Click"/>
+                    <Button x:Name="btnSubmit" Content="Submit" Grid.Row="6" Margin="5" Click="BtnSubmit_Click"/>
+                </UniformGrid>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

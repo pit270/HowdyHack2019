@@ -1,0 +1,59 @@
+﻿<Window x:Class="HowdyHack2019.Survey"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HowdyHack2019"
+        mc:Ignorable="d"
+        Title="Survey" Height="500" Width="800">
+    <Grid>
+        <Label Content="Grade: " Margin="90,10,0,0"></Label>
+        <StackPanel>
+            <ComboBox x:Name="gradeComboBox" Width="200" Margin="0,15,300,0" SelectionChanged="GradeComboBox_SelectionChanged">
+                <ComboBoxItem>Freshman</ComboBoxItem>
+                <ComboBoxItem>Sophmore</ComboBoxItem>
+                <ComboBoxItem>Junior</ComboBoxItem>
+                <ComboBoxItem>Senior</ComboBoxItem>
+                <ComboBoxItem>Graduate</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Label Content="Choose your language:" Margin="10,100,0,0"></Label>
+        <StackPanel>
+            <ComboBox x:Name="languageComboBox" Width="200" Margin="0,105,300,0" SelectionChanged="LanguageComboBox_SelectionChanged">
+                <ComboBoxItem>C</ComboBoxItem>
+                <ComboBoxItem>C++</ComboBoxItem>
+                <ComboBoxItem>C#</ComboBoxItem>
+                <ComboBoxItem>Java</ComboBoxItem>
+                <ComboBoxItem>JavaScript</ComboBoxItem>
+                <ComboBoxItem>Python</ComboBoxItem>
+                <ComboBoxItem>Ruby</ComboBoxItem>
+                <ComboBoxItem>Swift</ComboBoxItem>
+                <ComboBoxItem>Go</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Label Content="Coding experience (in years)?:" Margin="0,200,0,0"></Label>
+        <Label Content="0            1            2            3            4            5            6            7            8            9           10" Margin="173,225,0,0"></Label>
+        <StackPanel VerticalAlignment="Center" Margin="175,0,150,35">
+            <Slider Maximum="10" TickPlacement="BottomRight" TickFrequency="1" IsSnapToTickEnabled="True" x:Name="years"  ValueChanged="Years_ValueChanged"/>
+
+        </StackPanel>
+        <Label Content="Are you willing to teach someone to code?:" Margin="0,290,400,0"></Label>
+        <StackPanel>
+            <ComboBox x:Name="teachComboBox" Width="100" Margin="0,293,200,0" SelectionChanged="TeachComboBox_SelectionChanged">
+                <ComboBoxItem>Yes</ComboBoxItem>
+                <ComboBoxItem>No</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
+
+        <Label Content="Are you willing to learn another language?: " Margin="0,360,390,0"></Label>
+        <StackPanel>
+            <ComboBox x:Name="learnComboBox" Width="100" Margin="0,360,200,0" SelectionChanged="LearnComboBox_SelectionChanged">
+                <ComboBoxItem>Yes</ComboBoxItem>
+                <ComboBoxItem>No</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="btnSubmit" Content="Submit" Margin="5" Click="BtnSubmit_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
