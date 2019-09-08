@@ -112,6 +112,11 @@ namespace HowdyHack2019
             if (a != 1) MessageBox.Show("Insertion error. " + a);
             //Console.WriteLine(a);
             connection.Close();
+            if (a == 1)
+            {
+                parent.Show();
+                this.Close();
+            }
         }
 
         private bool hasTakenSurvey()
